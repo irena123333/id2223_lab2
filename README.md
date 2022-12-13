@@ -2,7 +2,7 @@
 
 Group 23: Ernan Wang, Shuyi Chen.
 
-In this lab, we fine-tuned a pre-trained transformer model, Whisper, for the Swedish language. The program is refactored into a feature engineering pipeline and a training pipeline as well as a serverless UI to realize the interaction. All of the codes are implemented on Colab. The model accepts two kinds of input: the user’s speech record through the microphone and the URL of Youtube’s video. The link to the Application webpage on Hugging Face is: https://huggingface.co/spaces/irena/ASR_ID2223 
+In this lab, we fine-tuned a pre-trained transformer model, Whisper, for the Swedish language. The program is refactored into a feature engineering pipeline and a training pipeline as well as a serverless UI to realize the interaction. All of the codes are implemented on Colab. The model accepts three kinds of input: the user’s speech recorded through the microphone, the uploaded audio file and the URL of Youtube’s video. The link to the Application webpage on Hugging Face is: https://huggingface.co/spaces/irena/ASR_ID2223 
 
 ## The Pre-trained Modal - Whisper
 [Whisper](https://huggingface.co/blog/fine-tune-whisper) is a pre-trained model for automatic speech recognition (ASR). It is based on the encoder-decoder model that maps audio spectrogram features to text tokens. Through the pre-training on a large number of labelled audio-transcription data, Whisper can realize better performance with fine-tuning. In this lab, we choose the model of Whisper_small to implement.
@@ -14,7 +14,7 @@ The [feature_pipeline.ipynb](https://github.com/irena123333/id2223_lab2/blob/mai
 In [training_pipeline.ipynb](https://github.com/irena123333/id2223_lab2/blob/main/training_pipeline.ipynb) we used GPU on Colab. The pre-trained model Whisper is loaded and the word error rate (WER) is set to evaluate the performance. We configurated max steps as 4000 and steps for checkpoints as 1000. After the 8-hour training, we realized a WER of 19.69%.
 
 ## The User Interface
-The interactive UI is created in Hugging Face as shown in [app.py](https://github.com/irena123333/id2223_lab2/blob/main/huggingface_space/app.py). We designed two pages supporting different kinds of inputs. The one is transcribing from the recording, through this the user just needs to click the bottom to record and speak in Swedish directly to the microphone. After submitting it will output the text. The other method is to transcribe from a YouTube URL via pasting and submitting the link of a Swedish video. 
+The interactive UI is created in Hugging Face as shown in [app.py](https://github.com/irena123333/id2223_lab2/blob/main/huggingface_space/app.py). We designed three pages supporting different kinds of inputs. The first one is transcribing from the recording, through this the user just needs to click the bottom to record and speak in Swedish directly to the microphone. After submitting it will output the text. Or the user can drop the local audio file or click to upload it and then submit. The last method is to transcribe from a YouTube URL via pasting and submitting the link of a Swedish video. 
 
 ### Question: how to improve model performance?
 #### Model-centric approach
